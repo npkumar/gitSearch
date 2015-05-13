@@ -44,7 +44,7 @@ function getRepoData(query) {
         var followers = $('<h4>').text("Followers: " + result[i].followers);
 
         //this element is to be toggled
-        var pElement = $('<p>').attr('id', result[i].owner_name);
+        var pElement = $('<p>').attr('id', result[i].owner_name).hide();
         pElement.append(description);
         pElement.append(url);
         pElement.append(language);
@@ -58,11 +58,24 @@ function getRepoData(query) {
         $('#results').append(list);
       }
 
+      //show or hide more details on clicking
+      createDetails(result);
+      
     } else {
       console.log('Failed to get data from Github.');
     }
 
   });
+}
+
+function createDetails(result) {
+  for (var i = 0; i < result.length; i++) {
+    (function(i) {
+      $('#' + 'li_' + result[i].owner_name).click(function() {
+        $('#' + result[i].owner_name).toggle();
+      });
+    })(i);
+  }
 }
 
 $(document).ready(main);
