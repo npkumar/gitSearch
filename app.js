@@ -4,10 +4,9 @@ function main() {
 
   $("#submit").click(function() {
     var query = $("#search").val();
-    console.log(query)
     getRepoData(query);
   });
-  
+
 }
 
 function getRepoData(query) {
@@ -28,7 +27,36 @@ function getRepoData(query) {
         result.push(temp);
       }
 
-      console.log(result);
+      var list = $('<ul>').attr('id', 'resultlist');
+      for (var i = 0; i < result.length; i++) {
+        console.log(result[i].owner + '/' + result[i].name);
+
+        //this element is to be clickable
+        var listElement = $('<li>').attr('id', 'li_' + result[i].owner_name);
+
+        var divElement = $('<div>');
+        var h2Element = $('<h2>').text(result[i].owner + '/' + result[i].name);
+
+        //content to be displayed
+        var description = $('<h4>').text("Description: " + result[i].description);
+        var url = $('<h4>').text("URL: " + result[i].url);
+        var language = $('<h4>').text("Language: " + result[i].language);
+        var followers = $('<h4>').text("Followers: " + result[i].followers);
+
+        //this element is to be toggled
+        var pElement = $('<p>').attr('id', result[i].owner_name);
+        pElement.append(description);
+        pElement.append(url);
+        pElement.append(language);
+        pElement.append(followers);
+
+        divElement.append(h2Element);
+        divElement.append(pElement);
+        listElement.append(divElement);
+        list.append(listElement);
+
+        $('#results').append(list);
+      }
 
     } else {
       console.log('Failed to get data from Github.');
