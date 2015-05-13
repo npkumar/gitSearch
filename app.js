@@ -53,7 +53,6 @@ function getRepoData(query) {
 
       var list = $('<ul>').attr('id', 'resultlist');
       for (var i = 0; i < result.length; i++) {
-        console.log(result[i].owner + '/' + result[i].name);
 
         //this element is to be clickable
         var listElement = $('<li>').attr('id', 'li_' + result[i].owner_name);
