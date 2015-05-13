@@ -2,14 +2,39 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <title>Search</title>
+  <title>Git Search</title>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  	
+  	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
   	<script src="app.js"></script>
   	<link rel="stylesheet" type="text/css" href="app.css">
 </head>
 <body>
-  <input id="search" type="text"/>
-  <input id="submit" type="submit" value="Search">
-  <div id="results"></div>
+	<div class="container">
+		<div class="row">
+			<div class="text-center col-md-10 col-xs-6">
+				<h1>Git Search</h1>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-10 col-xs-6">
+				<input id="search" class="form-control" type="text" autofocus/>
+			</div>
+			<div class="col-md-2 col-xs-6">
+		  		<input id="submit" class="btn btn-primary" type="submit" value="Search">
+		  	</div>
+	  	</div>
+		
+		<div class="row">
+	  		<div id="results" class="col-md-10 col-xs-6"></div>
+	  	</div>
+	</div>
 </body>
 </html>

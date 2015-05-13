@@ -62,10 +62,10 @@ function getRepoData(query) {
         var h2Element = $('<h2>').text(result[i].owner + '/' + result[i].name);
 
         //content to be displayed
-        var description = $('<h4>').text("Description: " + result[i].description);
-        var url = $('<h4>').text("URL: " + result[i].url);
-        var language = $('<h4>').text("Language: " + result[i].language);
-        var followers = $('<h4>').text("Followers: " + result[i].followers);
+        var description = $('<h5>').text("Description: " + result[i].description);
+        var url = $('<a>').text(result[i].url).attr('href', result[i].url);
+        var language = $('<h5>').text("Language: " + result[i].language);
+        var followers = $('<h5>').text("Followers: " + result[i].followers);
 
         //this element is to be toggled
         var pElement = $('<p>').attr('id', result[i].owner_name).hide();
