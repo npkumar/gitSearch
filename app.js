@@ -32,6 +32,9 @@ function main() {
 
 function getRepoData(query) {
 
+  //clear existing results before each search
+  $('#resultlist').html('');
+
   $.get(queryEndpoint + query, function(data, status) {
     var result = [];
     if (status == 'success') {
