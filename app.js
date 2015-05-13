@@ -2,6 +2,27 @@ var queryEndpoint = 'https://api.github.com/legacy/repos/search/';
 
 function main() {
 
+  //disable button if no text to query
+  $("#submit").attr("disabled", true);
+
+  //enable search using return key
+  $(document).keypress(function(e) {
+    var query = $("#search").val();
+    if (e.which == 13 && query.length > 0) {
+      getRepoData(query);
+    }
+  });
+
+  //disable search button if no query
+  $("#search").keyup(function() {
+    var query = $("#search").val();
+    if (query.length <= 0) {
+      $("#submit").attr("disabled", true);
+    } else {
+      $("#submit").attr("disabled", false);
+    }
+  });
+
   $("#submit").click(function() {
     var query = $("#search").val();
     getRepoData(query);
@@ -60,7 +81,7 @@ function getRepoData(query) {
 
       //show or hide more details on clicking
       createDetails(result);
-      
+
     } else {
       console.log('Failed to get data from Github.');
     }
