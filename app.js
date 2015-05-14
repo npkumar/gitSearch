@@ -33,7 +33,7 @@ function main() {
 function getRepoData(query) {
 
   //clear existing results before each search
-  $('#resultlist').html('');
+  $('#results').html('');
 
   $.get(queryEndpoint + query, function(data, status) {
     var result = [];
